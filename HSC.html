@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC 27 - Beshi Din Time Nai!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Bengali and English -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', 'Hind Siliguri', sans-serif;
+            background: radial-gradient(circle at center, #111827, #030712);
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(239, 68, 68, 0.7);
+        }
+        .glow-button {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        .shake-animation {
+            animation: shake 0.5s infinite;
+        }
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(0px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(2px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(2px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-100 min-h-screen flex flex-col justify-between p-4 md:p-8 selection:bg-red-500 selection:text-white">
+
+    <!-- Header Section -->
+    <header class="text-center max-w-3xl mx-auto mt-4">
+        <span class="bg-red-900/40 text-red-400 border border-red-500/30 px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold tracking-wider uppercase animate-pulse">
+            🚨 ALERT: HSC 27, Time Is Flying!
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mt-4 bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent">
+            Beshi Din Time Nai!
+        </h1>
+        <p class="text-gray-400 mt-2 text-sm md:text-base px-4">
+            Exam Date: <span class="text-yellow-400 font-bold">6 June, 2027</span>. Ekhono jodi ghumay thako, tahole mathay haat deya chara upai thakbe na!
+        </p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl w-full mx-auto my-8 flex-grow flex flex-col gap-8 justify-center">
+        
+        <!-- Countdown Widget -->
+        <div class="bg-gray-900/60 backdrop-blur-md border border-gray-800 rounded-3xl p-6 md:p-10 shadow-2xl relative overflow-hidden">
+            <!-- Decorative Light Effects -->
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-red-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
+
+            <h2 class="text-center text-gray-400 text-xs md:text-sm uppercase tracking-widest mb-6">HSC-2027 Er Baki Ache Ar Matro:</h2>
+            
+            <!-- Countdown Grid -->
+            <div class="grid grid-cols-4 gap-2 md:gap-6 text-center">
+                <!-- Days -->
+                <div class="bg-black/40 border border-gray-800 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center">
+                    <span id="days" class="text-3xl md:text-6xl font-extrabold text-red-500 glow-text">00</span>
+                    <span class="text-[10px] md:text-xs text-gray-500 uppercase mt-1 tracking-wider font-semibold">Days</span>
+                </div>
+                <!-- Hours -->
+                <div class="bg-black/40 border border-gray-800 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center">
+                    <span id="hours" class="text-3xl md:text-6xl font-extrabold text-orange-400">00</span>
+                    <span class="text-[10px] md:text-xs text-gray-500 uppercase mt-1 tracking-wider font-semibold">Hours</span>
+                </div>
+                <!-- Minutes -->
+                <div class="bg-black/40 border border-gray-800 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center">
+                    <span id="minutes" class="text-3xl md:text-6xl font-extrabold text-yellow-400">00</span>
+                    <span class="text-[10px] md:text-xs text-gray-500 uppercase mt-1 tracking-wider font-semibold">Minutes</span>
+                </div>
+                <!-- Seconds -->
+                <div class="bg-black/40 border border-gray-800 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center">
+                    <span id="seconds" class="text-3xl md:text-6xl font-extrabold text-green-400">00</span>
+                    <span class="text-[10px] md:text-xs text-gray-500 uppercase mt-1 tracking-wider font-semibold">Seconds</span>
+                </div>
+            </div>
+
+            <!-- Time Progress Bar -->
+            <div class="mt-8">
+                <div class="flex justify-between text-xs text-gray-500 mb-2">
+                    <span>HSC 27 Journey</span>
+                    <span id="progress-percent">0% Done</span>
+                </div>
+                <div class="w-full bg-gray-950 rounded-full h-3 overflow-hidden border border-gray-800">
+                    <div id="progress-bar" class="bg-gradient-to-r from-red-600 via-orange-500 to-green-500 h-full rounded-full transition-all duration-1000" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Motivational Punchlines (Serious & Fun) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Serious Quote Panel -->
+            <div class="bg-gray-900/40 backdrop-blur-sm border border-gray-800/60 rounded-2xl p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-2 text-red-500 mb-3">
+                        <span class="flex h-3 w-3 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
+                        <h3 class="font-bold text-sm tracking-wide uppercase">Serious Reality Check</h3>
+                    </div>
+                    <p id="reality-check" class="text-gray-300 text-sm md:text-base leading-relaxed font-semibold">
+                        "HSC marksheet jodi kharap hoy, relatives der mock shona lagbe. Ekhono somoy ache, phone ta dore rakho ar boi-khata kholo!"
+                    </p>
+                </div>
+                <button onclick="getNewRealityCheck()" class="mt-6 text-xs text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold transition-all">
+                    🔄 Dynamic Punchline Change Koro 
+                </button>
+            </div>
+
+            <!-- Interactive Study Planner / Micro-Goals -->
+            <div class="bg-gray-900/40 backdrop-blur-sm border border-gray-800/60 rounded-2xl p-6">
+                <h3 class="font-bold text-sm text-blue-400 tracking-wide uppercase mb-3 flex items-center gap-2">
+                    🎯 Ajker Challenge (Ekhoni Start Koro)
+                </h3>
+                
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 bg-black/30 p-2.5 rounded-lg border border-gray-800">
+                        <input type="checkbox" id="task1" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-gray-900 border-gray-700">
+                        <label for="task1" class="text-xs md:text-sm text-gray-300 cursor-pointer select-none">At least 2 ghonta phone door e rekhe porbo</label>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/30 p-2.5 rounded-lg border border-gray-800">
+                        <input type="checkbox" id="task2" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-gray-900 border-gray-700">
+                        <label for="task2" class="text-xs md:text-sm text-gray-300 cursor-pointer select-none">HSC 27 er targeted chapter er 5 ta math/question solve kora</label>
+                    </div>
+                    <div class="flex items-center gap-2 bg-black/30 p-2.5 rounded-lg border border-gray-800">
+                        <input type="checkbox" id="task3" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-gray-900 border-gray-700">
+                        <label for="task3" class="text-xs md:text-sm text-gray-300 cursor-pointer select-none">Kono distractions chara 1 ta test paper topic complete kora</label>
+                    </div>
+                </div>
+
+                <!-- Custom Task Input -->
+                <div class="mt-4 flex gap-2">
+                    <input type="text" id="custom-task" placeholder="Nijer task add koro..." class="bg-black/50 border border-gray-800 text-xs rounded-lg px-3 py-2 flex-grow focus:outline-none focus:border-blue-500 text-gray-200">
+                    <button onclick="addTask()" class="bg-blue-600 text-xs font-bold px-3 py-2 rounded-lg hover:bg-blue-500 transition-colors">Add</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fun Trigger / Panic Button -->
+        <div class="text-center mt-4">
+            <button onclick="triggerPanic()" class="bg-red-600/20 text-red-400 border border-red-500/50 hover:bg-red-600 hover:text-white px-6 py-3 rounded-xl font-bold text-sm transition-all duration-300 glow-button inline-flex items-center gap-2">
+                ⚠️ Click for Panic Mode! (Atanko)
+            </button>
+            <div id="panic-overlay" class="hidden fixed inset-0 bg-red-950/90 z-50 flex flex-col items-center justify-center p-4 text-center">
+                <div class="shake-animation max-w-lg">
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-red-500 mb-6 glow-text">PORTE BOSHO!!!</h2>
+                    <p class="text-xl md:text-2xl text-yellow-300 font-bold mb-4">HSC 27 er ar beshi din bakiiiii nai! 😱</p>
+                    <p class="text-gray-300 text-sm md:text-base mb-8">
+                        Ajkeo jodi pubg/free-fire khelo ba facebook e scroll koro, tahole result er din kanthay mukh guje thakte hobe!
+                    </p>
+                    <button onclick="stopPanic()" class="bg-white text-black px-6 py-2.5 rounded-lg font-bold hover:bg-gray-200 transition-colors text-sm">
+                        Amake maf koren Rimit vai, ami porte jachhi!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-600 text-xs pb-4 border-t border-gray-900 pt-4">
+        &copy; HSC 27 Survival Kit - Dynamic Countdown Clock. Beshi Din Time Nai! Focus Now.
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // Set the targeted HSC exam date (June 6, 2027)
+        const targetDate = new Date("June 6, 2027 10:00:00").getTime();
+        
+        // Define a base starting point to calculate progress (e.g. June 1, 2025 when Prep started/should start)
+        const startDate = new Date("June 1, 2025 00:00:00").getTime();
+        const totalDuration = targetDate - startDate;
+
+        // List of Motivational & Funny Reality Checks
+        const quotes = [
+            "🔴 'Bhai/Apu, HSC er GPA kintu change kora jay na. Matro koita din thikmoto porle life easy hobe!'",
+            "🔴 'Exam hall e pasher joner upor bhorosha kora bondho koro, shey nijei kichu pare na!'",
+            "🔴 'GPA-5 na paile ammu-abbu r kotha shunte shunte kan jha-la-pala hoye jabe. Realise koro!'",
+            "🔴 'Babu khayeso bolte bolte nijer carrier kheye dio na. Babu r carrier thik e hobe, tomar tai bhenge jabe.'",
+            "🔴 'HSC er math and physics syllabus kintu pre-test er por rocket er speed e complete hoye jabe. Bhoot er moto porle kintu labh nai!'",
+            "🔴 'Facebook/Insta feed e scrolling bondho koro, result er din post korar moto status banano lagbe to!'",
+            "🔴 'BUET, Medical ba DU er shopno dekho? Oigula te exam deyar qualification ta age dorkar. So, serious hou!'",
+            "🔴 'Bhai re bhai, time emne jachhe jemon rocket urtese. Ekhono jodi seriously na poro tahole khobor ache!'",
+            "​'আজকে অজুহাত দেওয়া সহজ, কিন্তু কয়েক বছর পর যখন মানুষ জিজ্ঞেস করবে “তুমি কি করো?”, তখন অজুহাত দিলে কেউ শুনবে না।'",
+            "​'পিতা-মাতার কষ্টের টাকার দিকে তাকাও একবার। ওনারা তোমার সাকসেস দেখার আশায় দিন গুনতেছে, আর তুমি টাইম পাস করতেছ!'",
+            "​'মিডল ক্লাস ফ্যামিলির ছেলেমেয়েদের জন্য সাকসেস কোনো অপশন না, এটা একমাত্র বাঁচার রাস্তা। তাই ঢং বন্ধ করে পড়তে বসো।'",
+            "​'ফেসবুকের লাইক-কমেন্ট দিয়ে সংসার চলবে না। দিনশেষে ব্যাংকের ব্যালেন্স আর নিজের যোগ্যতাই কথা বলবে।'",
+            "​'আজকে ঘুমাচ্ছ ঘুমাও, ক্যারিয়ারের বাঁশ যখন পেছন থেকে আসবে তখন সারাজীবন জেগে থাকতে হবে।'",
+            "​'এখন রাত জেগে টেক্সট করা সহজ লাগতেছে, কয়দিন পর যখন বেকারত্বের টেনশনে রাতে ঘুম আসবে না, তখন এই বাবু-ই তোমাকে ব্লক মারবে।'",
+            "​'লয়্যালটি ভালো জিনিস, কিন্তু নিজের ফিউচার ধ্বংস করে লয়্যাল থাকার কোনো মানে নাই। আগে নিজে কিছু হও, তারপর অন্য কিছু।'",
+            "​'ফেসবুকে রিলেশনশিপ স্ট্যাটাস দিয়ে লাভ নাই, পকেটে টাকা আর লাইফে ক্যারিয়ার না থাকলে ওসব স্ট্যাটাস কোনো কাজে আসবে না।'",
+            "​'তুমি না থাকলে আমি বাঁচবো না, বলা মানুষটা ক্যারিয়ার না থাকলে সবার আগে অন্য কারোর হাত ধরে চলে যাবে। বাস্তব বড় কঠিন ভাই!'",
+            "​'সারা বছর আড্ডা দেওয়া ফ্রেন্ডরা কিন্তু পরীক্ষার রেজাল্টের পর নিজের ক্যারিয়ার নিয়ে কেটে পড়বে, তুমি একাই মাঝ দরিয়ায় ভাসবা।'",
+            "​'গ্রুপ স্টাডির নামে যারা শুধু আড্ডা আর ট্রোল শেয়ার করো, পরীক্ষার হলে তারা সবাই মিলে একসাথে ডুববা!'",
+            "'যে বন্ধুটা বলতেছে “দোস্ত আমি কিচ্ছু পড়ি নাই”, পরীক্ষার পর দেখবা ওই ব্যাটাই টপার। অন্য কারোর ওপর ভরসা করে নিজের পায়ে কুড়াল মারিও না।'",
+            "​'এক্সাম হলে যে ঘাড় ঘুরায় দেখাবে ভাবছ, সে নিজেই হয়তো কখগঘ মিলাতে পারছে না। নিজের খাতায় মন দাও।'",
+            "কি পড়াশোনা কর ত!পড়তে হবে,নকল আর হবে না.....Milon sir",
+            "​'পরীক্ষায় ভালো না করলে সমাজ সান্ত্বনা দিবে ঠিকই, কিন্তু আড়ালে হাসাহাসি করতে এক সেকেন্ডও ভাববে না।'",
+            "​'রিলস স্ক্রল করতে করতে অন্যের লাইফ স্টাইল দেখতেছ, এদিকে নিজের লাইফ যে নো-স্টাইল হয়ে যাচ্ছে সেই খেয়াল আছে?'",
+            "​'মোবাইলের স্ক্রিন টাইম যত বাড়তেছে, রেজাল্টের গ্রাফ তত নিচে নামতেছে। একটু চোখ খোলো ভাই!'"
+   
+        ];
+
+        function getNewRealityCheck() {
+            const quoteEl = document.getElementById('reality-check');
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            quoteEl.innerText = quotes[randomIndex];
+        }
+
+        // Main Countdown Logic
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference <= 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                document.getElementById('progress-bar').style.width = "100%";
+                document.getElementById('progress-percent').innerText = "100% Done (HSC Exam Time!)";
+                return;
+            }
+
+            // Calculation for days, hours, minutes and seconds
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            // Display components
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            // Calculate progress percentage
+            const elapsed = now - startDate;
+            const progressPercent = Math.min(Math.max((elapsed / totalDuration) * 100, 0), 100).toFixed(4);
+            
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+            document.getElementById('progress-percent').innerText = `${progressPercent}% Time Over`;
+        }
+
+        // Custom task adding functionality
+        function addTask() {
+            const taskInput = document.getElementById('custom-task');
+            const taskText = taskInput.value.trim();
+            if (taskText === "") return;
+
+            const container = taskInput.closest('div').previousElementSibling; // tasks container
+            
+            // Create new unique task elements
+            const taskId = 'task-' + Date.now();
+            const taskDiv = document.createElement('div');
+            taskDiv.className = "flex items-center justify-between bg-black/30 p-2.5 rounded-lg border border-gray-800";
+            taskDiv.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" id="${taskId}" class="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 bg-gray-900 border-gray-700">
+                    <label for="${taskId}" class="text-xs md:text-sm text-gray-300 cursor-pointer select-none">${taskText}</label>
+                </div>
+                <button onclick="this.parentNode.remove()" class="text-red-500 hover:text-red-400 text-xs font-bold px-1.5 py-0.5">Delete</button>
+            `;
+            
+            container.appendChild(taskDiv);
+            taskInput.value = "";
+        }
+
+        // Panic Overlay Controls
+        function triggerPanic() {
+            const overlay = document.getElementById('panic-overlay');
+            overlay.classList.remove('hidden');
+        }
+
+        function stopPanic() {
+            const overlay = document.getElementById('panic-overlay');
+            overlay.classList.add('hidden');
+        }
+
+        // Initialize and keep updating countdown
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Initial Reality Check load
+        getNewRealityCheck();
+    </script>
+</body>
+</html>
